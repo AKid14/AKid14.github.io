@@ -1,0 +1,252 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Default Theme (Light Mode) */
+body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #222;
+    color: #eee;
+}
+
+/* Sticky Top Bar */
+.top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 9999;
+}
+
+body.dark-mode .top-bar {
+    background: #333;
+    box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+}
+
+/* Lumbini text (Left) */
+.lumbini-text {
+    flex: 1;
+}
+.lumbini-text h2 {
+    color: #333;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+body.dark-mode .lumbini-text h2 {
+    color: #eee;
+}
+
+/* Center Nav (Buttons) */
+.center-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.nav-btn:hover {
+    color: #b3ff00;
+    text-decoration: underline;
+    text-decoration-color: #b3ff00;
+}
+
+body.dark-mode .nav-btn {
+    color: #eee;
+}
+body.dark-mode .nav-btn:hover {
+    color: #b3ff00;
+}
+
+/* Dark Mode Toggle (Right) */
+.dark-toggle-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Make sure the icons have no background and fit the top bar color */
+.dark-mode-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+/* Both icons default to invisible except for the moon (light mode) */
+.dark-mode-toggle img {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 8px;
+    left: 8px;
+    background: none; /* remove any background color */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Moon is shown in light mode */
+.icon-moon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* In dark mode, hide the moon */
+body.dark-mode .icon-moon {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Default: Show moon icon in light mode */
+.icon-moon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hide sun icon in light mode */
+.icon-sun {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* In dark mode, show sun and hide moon */
+body.dark-mode .icon-sun {
+    opacity: 1;
+    transform: translateY(1px); /* Moves the sun down */
+}
+
+body.dark-mode .icon-moon {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Ensure moon is visible again in light mode */
+body:not(.dark-mode) .icon-moon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Second Sticky Bar (Hidden by default) */
+.sub-bar {
+    position: fixed;
+    top: 60px; /* just below the main top bar */
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: none; /* hidden by default */
+    z-index: 9998;
+}
+
+body.dark-mode .sub-bar {
+    background: #333;
+    box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+}
+
+/* Container for places */
+.places-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.place-card {
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fafafa;
+}
+
+body.dark-mode .place-card {
+    background: #444;
+}
+
+.place-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.place-card:hover img {
+    transform: scale(1.1);
+}
+
+.place-card:hover {
+    transform: scale(1.05);
+}
+
+.place-card p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+body.dark-mode .place-card p {
+    color: #eee;
+}
+
+/* Main Content (After the top bar) */
+.content {
+    margin-top: 60px; /* to avoid overlapping with top bar */
+    padding: 2rem 1rem;
+}
+
+.lumbini-info {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.lumbini-info h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.lumbini-info p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.lumbini-bg-img {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}

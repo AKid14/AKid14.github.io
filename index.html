@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lumbini</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Main Sticky Top Bar -->
+  <header class="top-bar">
+    <!-- Left: Lumbini text/logo -->
+    <div class="lumbini-text">
+      <h2>Lumbini</h2>
+    </div>
+
+    <!-- Center: Buttons -->
+    <div class="center-nav">
+      <button class="nav-btn" id="placesBtn">Places to Visit</button>
+      <button class="nav-btn" id="thingsBtn">Things to do</button>
+    </div>
+
+    <div class="dark-toggle-container">
+      <button class="dark-mode-toggle" id="darkModeToggle">
+        <img src="images/moon.png" alt="Moon Icon" class="icon-moon"/>
+        <img src="images/sun.png" alt="Sun Icon" class="icon-sun"/>
+      </button>
+    </div>
+  
+  </header>
+
+  <!-- Second Sticky Bar (hidden by default, shown when user clicks 'Places to Visit') -->
+  <div class="sub-bar" id="subBar">
+    <div class="places-container">
+      <!-- Example place card -->
+      <div class="place-card">
+        <img src="images/Mayadevi temple.jpg" alt="Maya Devi Temple" />
+        <p>Maya Devi Temple</p>
+      </div>
+      <div class="place-card">
+        <img src="images/Asoka Pillar.jpg" alt="Ashoka Pillar" />
+        <p>Ashoka Pillar</p>
+      </div>
+      <div class="place-card">
+        <img src="images/Birthplacebuddha.jpg" alt="Buddha's Birthplace" />
+        <p>Buddha's Birthplace</p>
+      </div>
+      <div class="place-card">
+        <img src="images/world_peace_pagoda.jpg" alt="World Peace Pagoda" />
+        <p>World Peace Pagoda</p>
+      </div>
+      <!-- Add more as needed -->
+    </div>
+  </div>
+
+  <!-- Main Content: Lumbini History & Info -->
+  <main class="content">
+    <section class="lumbini-info">
+      <h1>About Lumbini</h1>
+      <p>
+        Lumbini is the birthplace of Lord Buddha, located in the Rupandehi District of Nepal. 
+        It is a UNESCO World Heritage Site known for its rich archaeological and spiritual significance. 
+        Key attractions include the Maya Devi Temple, Ashoka Pillar, World Peace Pagoda, and numerous monasteries 
+        built by various nations, symbolizing peace and harmony.
+      </p>
+      <p>
+        Visitors can explore the Sacred Garden, meditate by ancient ruins, and immerse themselves in the serene 
+        atmosphere. Lumbini’s history dates back over two millennia, drawing pilgrims and tourists from around 
+        the world. The region offers a glimpse into Buddhist heritage, art, and architecture.
+      </p>
+      <img src="images/lumbini_background.jpg" alt="Lumbini Background" class="lumbini-bg-img" />
+    </section>
+  </main>
+</body>
+</html>
