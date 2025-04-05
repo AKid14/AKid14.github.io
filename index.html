@@ -8,47 +8,41 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <header class="top-bar">
-    <div class="lumbini-text" id="main">
-      <h2>Lumbini</h2>
-    </div>
 
-    <div class="center-nav">
-      <button class="nav-btn" id="placesBtn">Places to Visit</button>
-    </div>
+<header class="top-bar">
+  <div class="dark-toggle-container">
+    <button class="dark-mode-toggle" id="darkModeToggle">
+      <img src="images/moon.png" alt="Moon Icon" class="icon-moon"/>
+      <img src="images/sun.png" alt="Sun Icon" class="icon-sun"/>
+    </button>
+  </div>
 
-    <div class="dark-toggle-container">
-      <button class="dark-mode-toggle" id="darkModeToggle">
-        <img src="images/moon.png" alt="Moon Icon" class="icon-moon"/>
-        <img src="images/sun.png" alt="Sun Icon" class="icon-sun"/>
-      </button>
-    </div>
-  
-  </header>
+  <!-- Center: Title -->
+  <div class="lumbini-text" id="main">
+    <h2>Lumbini</h2>
+    <div class="underline"></div>
+  </div>
 
-  <div class="sub-bar" id="subBar">
-    <div class="places-container">
-      <div class="place-card">
-        <img src="images/Mayadevi temple.jpg" alt="Maya Devi Temple" />
-        <p>Maya Devi Temple</p>
-      </div>
-      <div class="place-card">
-        <img src="images/Asoka Pillar.jpg" alt="Ashoka Pillar" />
-        <p>Ashoka Pillar</p>
-      </div>
-      <div class="place-card">
-        <img src="images/World Peace Pagoda.jpg" alt="World Peace Pagoda" />
-        <p>World Peace Pagoda</p>
-      </div>
-      <div class="place-card">
-        <img src="images/East Monastic Zone.jpg" alt="East Monastic Zone" />
-        <p>Lumbini Monastic Site</p>
-      </div>
-    </div>
+  <!-- Right: Hamburger Menu -->
+  <div class="hamburger-menu" id="hamburgerMenu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</header>
+
+<div class="side-menu" id="sideMenu">
+  <ul>
+    <li id="asoka1">Asoka Pillar</li>
+    <li id="mayadevi1">Mayadevi Temple</li>
+    <li id="wpp1">World Peace Pagoda</li>
+    <li id="lms1">Lumbini Monastic Site</li>
+  </ul>
 </div>
+
   <main class="content">
     <section class="lumbini-info">
-      <h1>About Lumbini</h1>
+      <h1>About Lumbini</h1><br>
       <p>
         Lumbini is the birthplace of Lord Buddha, located in the Rupandehi District of Nepal. 
         It is a UNESCO World Heritage Site known for its rich archaeological and spiritual significance. 
@@ -62,6 +56,26 @@
       </p>
       <img src="images/lumbini.webp" alt="Lumbini Background" class="lumbini-bg-img" />
     </section>
+    <div>
+    <div class="slider">
+      <div class="item">
+        <img src="images/Asoka Pillar.jpg" alt="Asoka Pillar" class="item-img" id="asoka">
+        <p>Ashoka Pillar</p>
+      </div>
+      <div class="item">
+        <img src="images/Mayadevi temple.jpg" alt="Mayadevi Temple" class="item-img" id="mayadevi">
+        <p>Mayadevi Temple</p>
+      </div>
+      <div class="item">
+        <img src="images/World_Peace_Pagoda.jpg" alt="World Peace Pagoda" class="item-img" id="wpp">
+        <p>World Peace Pagoda</p>
+      </div>
+      <div class="item">
+        <img src="images/West Monastic Zone.jpg" alt="Lumbini Monastic Site" class="item-img" id="lms">
+        <p>Lumbini Monastic Site</p>
+      </div>
+      </div>
+    <div>
   </main>
 </body>
 </html>

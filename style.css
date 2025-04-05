@@ -1,252 +1,271 @@
-/* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Default Theme (Light Mode) */
 body {
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    color: #333;
-    transition: background 0.3s, color 0.3s;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+  overflow-x: hidden;
 }
 
-/* Dark Mode */
 body.dark-mode {
-    background: #222;
-    color: #eee;
+  background: #222;
+  color: #eee;
 }
 
-/* Sticky Top Bar */
 .top-bar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* or whatever your bar height is */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  z-index: 1000000;
+  padding: 0 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 body.dark-mode .top-bar {
-    background: #333;
-    box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+  background: #333;
 }
 
-/* Lumbini text (Left) */
 .lumbini-text {
-    flex: 1;
+  flex: 1;
+  text-align: center;
+  position: relative;
 }
+
+.lumbini-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: lightgreen;
+  transition: width 0.5s ease, left 0.5s ease;
+  transform: translateX(-50%);
+}
+
+.lumbini-text:hover::after {
+  width: 100%;
+  left: 50%; /* Center the underline */
+}
+
+.lumbini-text:hover {
+  color: lightgreen;
+}
+
 .lumbini-text h2 {
-    color: #333;
-    font-size: 1.5rem;
-    transition: color 0.3s;
+  font-size: 1.5rem;
+  color: #333;
+  transition: color 0.3s;
+  display: inline-block;
 }
+
 body.dark-mode .lumbini-text h2 {
-    color: #eee;
+  color: #eee;
 }
 
-/* Center Nav (Buttons) */
-.center-nav {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.nav-btn {
-    background: transparent;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    color: #333;
-    font-weight: 600;
-    transition: color 0.3s, text-decoration 0.3s;
-}
-
-.nav-btn:hover {
-    color: #b3ff00;
-    text-decoration: underline;
-    text-decoration-color: #b3ff00;
-}
-
-body.dark-mode .nav-btn {
-    color: #eee;
-}
-body.dark-mode .nav-btn:hover {
-    color: #b3ff00;
-}
-
-/* Dark Mode Toggle (Right) */
 .dark-toggle-container {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
 }
 
-/* Make sure the icons have no background and fit the top bar color */
 .dark-mode-toggle {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    width: 40px;
-    height: 40px;
-    overflow: hidden;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  width: 40px;
+  height: 40px;
 }
 
-/* Both icons default to invisible except for the moon (light mode) */
 .dark-mode-toggle img {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    top: 8px;
-    left: 8px;
-    background: none; /* remove any background color */
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s, transform 0.3s;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 8px;
+  left: 8px;
+  background: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, transform 0.3s;
 }
 
-/* Moon is shown in light mode */
 .icon-moon {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* In dark mode, hide the moon */
 body.dark-mode .icon-moon {
-    opacity: 0;
-    transform: translateY(-10px);
+  opacity: 0;
+  transform: translateY(-10px);
 }
 
-/* Default: Show moon icon in light mode */
-.icon-moon {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Hide sun icon in light mode */
 .icon-sun {
-    opacity: 0;
-    transform: translateY(-10px);
+  opacity: 0;
+  transform: translateY(-10px);
 }
 
-/* In dark mode, show sun and hide moon */
 body.dark-mode .icon-sun {
-    opacity: 1;
-    transform: translateY(1px); /* Moves the sun down */
+  opacity: 1;
+  transform: translateY(1px);
 }
 
-body.dark-mode .icon-moon {
-    opacity: 0;
-    transform: translateY(-10px);
-}
-
-/* Ensure moon is visible again in light mode */
 body:not(.dark-mode) .icon-moon {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-
-/* Second Sticky Bar (Hidden by default) */
-.sub-bar {
-    position: fixed;
-    top: 60px; /* just below the main top bar */
-    width: 100%;
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    display: none; /* hidden by default */
-    z-index: 9998;
+.hamburger-menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Stacks the bars vertically */
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  margin-left: auto; /* Pushes the menu to the right */
+  margin-right: -70px;
 }
 
-body.dark-mode .sub-bar {
-    background: #333;
-    box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+.hamburger-menu .bar {
+  width: 20px; /* Reduced size by 25% */
+  height: 3px;
+  background-color: black; /* Set default color to black */
+  transition: background-color 0.3s;
+  transform: skewX(-25deg); /* Slant the hamburger menu */
 }
 
-/* Container for places */
-.places-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
-    max-height: 300px;
-    overflow-y: auto;
+body.dark-mode .hamburger-menu .bar {
+  background-color: #fff;
 }
 
-.place-card {
-    width: 150px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    border-radius: 4px;
-    overflow: hidden;
-    background: #fafafa;
+body.dark-mode .side-menu {
+  background-color: #444;
 }
 
-body.dark-mode .place-card {
-    background: #444;
-}
-
-.place-card img {
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.place-card:hover img {
-    transform: scale(1.1);
-}
-
-.place-card:hover {
-    transform: scale(1.05);
-}
-
-.place-card p {
-    margin: 0.5rem 0;
-    font-size: 0.9rem;
-    color: #333;
-}
-
-body.dark-mode .place-card p {
-    color: #eee;
-}
-
-/* Main Content (After the top bar) */
-.content {
-    margin-top: 60px; /* to avoid overlapping with top bar */
-    padding: 2rem 1rem;
-}
-
-.lumbini-info {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.lumbini-info h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.lumbini-info p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
+body.dark-mode li {
+  color: #eee;
 }
 
 .lumbini-bg-img {
-    width: 100%;
-    height: auto;
-    margin-top: 1rem;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
 }
+
+.lumbini-info{
+  padding-top: 65px;
+}
+
+body.dark-mode .slider .item {
+  background-color: #444;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #eee;
+  color: white;
+  transition: right 0.5s ease;
+  padding: 20px;
+  padding-top: 65px;
+  z-index: 10000;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu li {
+  margin: 15px 0;
+  color: #444;
+}
+
+/* Show side menu when active */
+#sideMenu.active {
+  right: 0; /* Show the menu */
+}
+
+.slider {
+  position: relative;
+  width: 100vw;
+  height: 55vh;
+  max-height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  margin: 0 auto;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.item {
+  position: absolute;
+  width: 70vw; /* Smaller width to leave space on sides */
+  max-width: 260px;
+  height: 80%;
+  background-color: #fff;
+  border: 2px solid #444;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: transform 0.5s, opacity 0.5s;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+body.dark-mode .item {
+  border: 2px solid #eee;
+}
+
+.item.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.item.prev,
+.item.next {
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* Optional: Add custom left/right transforms */
+.item.prev {
+  transform: translateX(-80%) scale(0.9);
+}
+.item.next {
+  transform: translateX(80%) scale(0.9);
+}
+
+.item-img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
