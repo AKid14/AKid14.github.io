@@ -8,45 +8,34 @@
   <script defer src="../script.js"></script>
 </head>
 <body>
-  <header class="top-bar">
-    <div class="lumbini-text">
-      <h2 id="main">Lumbini</h2>
-    </div>
-
-    <div class="center-nav">
-      <button class="nav-btn" id="placesBtn">Places to Visit</button>
-    </div>
-
-    <div class="dark-toggle-container">
-      <button class="dark-mode-toggle" id="darkModeToggle">
-        <img src="../images/moon.png" alt="Moon Icon" class="icon-moon"/>
-        <img src="../images/sun.png" alt="Sun Icon" class="icon-sun"/>
-      </button>
-    </div>
-  
-  </header>
-
-  <div class="sub-bar" id="subBar">
-    <div class="places-container">
-      <div class="place-card">
-        <img src="../images/Mayadevi temple.jpg" alt="Maya Devi Temple" />
-        <p>Maya Devi Temple</p>
-      </div>
-      <div class="place-card">
-        <img src="../images/Asoka Pillar.jpg" alt="Ashoka Pillar" />
-        <p>Ashoka Pillar</p>
-      </div>
-      <div class="place-card">
-        <img src="../images/World Peace Pagoda.jpg" alt="World Peace Pagoda" />
-        <p>World Peace Pagoda</p>
-      </div>
-      <div class="place-card">
-        <img src="../images/East Monastic Zone.jpg" alt="East Monastic Zone" />
-        <p>Lumbini Monastic Site</p>
-      </div>
-    </div>
+<header class="top-bar">
+  <div class="dark-toggle-container">
+    <button class="dark-mode-toggle" id="darkModeToggle">
+      <img src="../images/moon.png" alt="Moon Icon" class="icon-moon"/>
+      <img src="../images/sun.png" alt="Sun Icon" class="icon-sun"/>
+    </button>
   </div>
 
+  <div class="lumbini-text" id="main">
+    <h2>Lumbini</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="hamburger-menu" id="hamburgerMenu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</header>
+
+<div class="side-menu" id="sideMenu">
+  <ul>
+    <li id="asoka1">Asoka Pillar</li>
+    <li id="mayadevi1">Mayadevi Temple</li>
+    <li id="wpp1">World Peace Pagoda</li>
+    <li id="lms1">Lumbini Monastic Site</li>
+  </ul>
+</div>
   <main class="content">
     <section class="lumbini-info">
       <h1>About Lumbini Monastic Site</h1>

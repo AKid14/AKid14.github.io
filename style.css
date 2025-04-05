@@ -1,5 +1,7 @@
 * {
   margin: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
   padding: 0;
   box-sizing: border-box;
 }
@@ -22,7 +24,7 @@ body.dark-mode {
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px; /* or whatever your bar height is */
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,7 +41,9 @@ body.dark-mode .top-bar {
 .lumbini-text {
   flex: 1;
   text-align: center;
-  position: relative;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .lumbini-text::after {
@@ -56,7 +60,7 @@ body.dark-mode .top-bar {
 
 .lumbini-text:hover::after {
   width: 100%;
-  left: 50%; /* Center the underline */
+  left: 50%;
 }
 
 .lumbini-text:hover {
@@ -129,21 +133,22 @@ body:not(.dark-mode) .icon-moon {
 .hamburger-menu {
   flex: 1;
   display: flex;
-  flex-direction: column; /* Stacks the bars vertically */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 4px;
   cursor: pointer;
-  margin-left: auto; /* Pushes the menu to the right */
+  margin-left: auto;
   margin-right: -70px;
+  padding-left: 40%;
 }
 
 .hamburger-menu .bar {
-  width: 20px; /* Reduced size by 25% */
+  width: 20px;
   height: 3px;
-  background-color: black; /* Set default color to black */
+  background-color: black;
   transition: background-color 0.3s;
-  transform: skewX(-25deg); /* Slant the hamburger menu */
+  transform: skewX(-25deg);
 }
 
 body.dark-mode .hamburger-menu .bar {
@@ -167,6 +172,8 @@ body.dark-mode li {
 
 .lumbini-info{
   padding-top: 65px;
+  padding-left: 4vh;
+  padding-right: 4vh;
 }
 
 body.dark-mode .slider .item {
@@ -196,11 +203,15 @@ body.dark-mode .slider .item {
 .side-menu li {
   margin: 15px 0;
   color: #444;
+  transition: color 0.3s;
 }
 
-/* Show side menu when active */
+.side-menu li:hover {
+    color: lightgreen;
+}
+
 #sideMenu.active {
-  right: 0; /* Show the menu */
+  right: 0;
 }
 
 .slider {
@@ -220,7 +231,7 @@ body.dark-mode .slider .item {
 
 .item {
   position: absolute;
-  width: 70vw; /* Smaller width to leave space on sides */
+  width: 70vw;
   max-width: 260px;
   height: 80%;
   background-color: #fff;
@@ -254,7 +265,6 @@ body.dark-mode .item {
   z-index: 1;
 }
 
-/* Optional: Add custom left/right transforms */
 .item.prev {
   transform: translateX(-80%) scale(0.9);
 }
